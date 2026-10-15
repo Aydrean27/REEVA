@@ -1,105 +1,22 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale+1.0">
-    <title>ColLab</title>
-</head>
-<body>
-    <header>
-        <h1>ColLab</h1>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About us</a>
-        <a href="#">Functions</a>
-        <a href="#">Login</a>
-    </nav>
-
-
-    <main>
-
-        <section class="hero-carrusel">
-
-            <div class="hero-contenido">
-                <h1>Learn Beyond The Classroom</h1>
-
-                <p>
-                    Connect with students, discover new ways to learn, and turn every challenge into an opportunity with ColLab
-                </p>
-            </div>
-           
-
-        </section>
-
-    </main>
-
-
-    <footer>
-
-        <p>ColLab - 2026</p>
-    </footer>
-
-</body>
-
-</html>
+<!DOCTYPE HTML>
+<html lang="en"
 
 
 
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device/width, initial/scale=1.0">
-   
-   <title>REEVA</title>
-
-</head>
-
-<body>
-
-<header>
-
-<h1>REEVA</h1>
-
-<nav>
-
-<a href="#">Inicio</a>>
-<a href="#">Information</a>>
-<a href="#">Contact</a>>
 
 
-</nav>
-<main>
-<section>
-<h2>What is REEVA?</h2>
-<p>Is and style that wants to change...."
 
+<!-- Elemento donde aparecerá el selector de idiomas -->
+<div id="google_translate_element"></div>
 
-Here we explain what problem REEVA solves.
-Contamination, ...</p>
-
-</section>
-
-
-<section>
-
-<h2>Who is REEVA for?</h2>
-
-<p>
-Here we explain who will use REEVA.
-</p>
-
-</section>
-
-</main>
-
-
-<footer>
-
-<p>REEVA / 2026</p>
-
-</footer>
-</body>
-</html>
+<!-- Script oficial de Google Translate -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es', // El idioma original de tu página (ej. español)
+      includedLanguages: 'en,es,fr,de', // Idiomas permitidos (inglés, español, francés, alemán, etc.)
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
