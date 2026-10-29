@@ -1,22 +1,24 @@
-<!DOCTYPE HTML>
-<html lang="en"
+<!DOCTYPE html>
+<html lang="es"
+
+<header>
+  <h1>HOLA BEBÉ</h1>
+</header>
+
+<body>
+<H2>Ya que contigo no sirve la labia</H2>
+<h3>y te crees muy sabia</h3>
+<h4>pero vas a caer te lo digo mujer</h4>
+<H1>EA</H1>
+<h1>yo sé que acabo de conocelte</h1>
+<h2>y es muy rápido pa tenelte</h2>
+<h3>yo lo que quiero es complacerte</h3>
+<h1>NENA MIA DEJATE LLEVAR</h1>
+<H2>dIME Si ConMiGo QuIerE Hacel Trabesura</H2>
+<H3>QUe Se A vUelTo UnA LoCUrA</H3>
+<h4>y TÚ estás BieN dURa</h4>
+<h1>No me Puedo Contenel</h1>
+<h1>No me Puedo ContenEEEEEEEEEEEEL</h1>
 
 
-
-
-
-
-<!-- Elemento donde aparecerá el selector de idiomas -->
-<div id="google_translate_element"></div>
-
-<!-- Script oficial de Google Translate -->
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'es', // El idioma original de tu página (ej. español)
-      includedLanguages: 'en,es,fr,de', // Idiomas permitidos (inglés, español, francés, alemán, etc.)
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
