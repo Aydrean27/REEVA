@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#25799B">
+  <meta name="description" content="REEVA conecta moda circular, creadores y prendas con historia en Panamá.">
+  <title>REEVA — Cada prenda merece otra historia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">MODA CIRCULAR · CREATIVIDAD LOCAL · PANAMÁ <span>✳</span> CADA PRENDA TIENE OTRA VIDA</div>
+  <header class="header" id="top">
+    <a class="brand" href="#inicio" aria-label="REEVA inicio">REEVA<span>®</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="nav" id="mainNav">
+      <a href="#tienda">Tienda</a><a href="#creadores">Creadores</a><a href="#proceso">Cómo funciona</a>
+      <a href="#centros">Centros de acopio</a><a href="#historia">Nuestra historia</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Buscar">⌕</button>
+      <button class="icon-btn" id="accountToggle" aria-label="Mi cuenta">♙</button>
+      <button class="cart-button" id="cartToggle" aria-label="Abrir carrito">Bolsa <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow light">VISTE EL CAMBIO · REESCRIBE LA HISTORIA</p>
+        <h1>Lo que fue,<br><em>vuelve a ser.</em></h1>
+        <p class="hero-lead">Moda con otra perspectiva. Descubre piezas únicas creadas a partir de materiales que merecen una segunda oportunidad.</p>
+        <div class="hero-ctas"><a class="button button-red" href="#tienda">Explorar prendas <span>↗</span></a><a class="text-link light-link" href="#proceso">Conoce el movimiento <span>→</span></a></div>
+        <div class="hero-foot"><span>01 — DISCOVER</span><span>MODA CIRCULAR EN PANAMÁ</span></div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://raw.githubusercontent.com/Aydrean27/Aydreanboom/main/Img/modelo%201.jpg" alt="Modelo con una creación de moda upcycling">
+        <div class="hero-sticker"><span>RE</span><strong>IMAGINA</strong><small>THE CIRCULAR WAY</small></div>
+        <div class="hero-caption">PIEZAS ÚNICAS. NUEVAS POSIBILIDADES.</div>
+      </div>
+      <div class="hero-orbit"></div>
+    </section>
+
+    <section class="ticker" aria-label="Filosofía REEVA"><div>DISCOVER <b>✳</b> CREATE <b>✳</b> CONNECT <b>✳</b> TRANSFORM <b>✳</b> DISCOVER <b>✳</b> CREATE <b>✳</b> CONNECT <b>✳</b> TRANSFORM <b>✳</b></div></section>
+
+    <section class="intro section-pad">
+      <div><p class="eyebrow">01 / UNA NUEVA FORMA DE VESTIR</p><h2>No es ropa usada.<br><em>Es diseño con propósito.</em></h2></div>
+      <div class="intro-text"><p>REEVA es un espacio donde la creatividad transforma lo existente. Conectamos a compradores, creadores y personas que desean dar una nueva oportunidad a sus prendas.</p><a class="text-link" href="#historia">Descubre nuestra filosofía <span>↗</span></a></div>
+    </section>
+
+    <section class="shop section-pad" id="tienda">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / SELECCIÓN REEVA</p><h2>Encuentra tu <em>siguiente historia.</em></h2></div>
+        <a class="text-link" href="#tienda">Ver la colección <span>↗</span></a>
+      </div>
+      <div class="shop-tools">
+        <div class="filters" role="group" aria-label="Filtrar productos">
+          <button class="filter active" data-filter="all">Todo</button><button class="filter" data-filter="ropa">Prendas</button><button class="filter" data-filter="accesorios">Accesorios</button><button class="filter" data-filter="bolsos">Bolsos</button>
+        </div>
+        <label class="sort-label">Ordenar <select id="sortProducts"><option value="featured">Destacados</option><option value="low">Precio: menor a mayor</option><option value="high">Precio: mayor a menor</option></select></label>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <article class="product-card" data-category="ropa" data-price="38">
+          <div class="product-image"><img src="https://raw.githubusercontent.com/Aydrean27/Aydreanboom/main/Img/Mujer%20upcycling%20ropa%20de%20cuadritos.jpg" alt="Prenda reconstruida con textiles de cuadros"><span class="product-tag">PIEZA ÚNICA</span><button class="favorite" aria-label="Guardar favorito">♡</button></div>
+          <div class="product-meta"><div><h3>Patchwork Rework</h3><p>Por Atelier Abryll</p></div><strong>$38.00</strong></div><button class="add-cart" data-name="Patchwork Rework" data-price="38">Añadir a la bolsa <span>+</span></button>
+        </article>
+        <article class="product-card" data-category="ropa" data-price="46">
+          <div class="product-image"><img src="https://raw.githubusercontent.com/Aydrean27/Aydreanboom/main/Img/REEVA%20(1).png" alt="Diseño de moda circular REEVA"><span class="product-tag">REIMAGINADA</span><button class="favorite" aria-label="Guardar favorito">♡</button></div>
+          <div class="product-meta"><div><h3>Second Life Set</h3><p>Por Colectivo Re-Forma</p></div><strong>$46.00</strong></div><button class="add-cart" data-name="Second Life Set" data-price="46">Añadir a la bolsa <span>+</span></button>
+        </article>
+        <article class="product-card" data-category="bolsos" data-price="29">
+          <div class="product-image"><img src="https://raw.githubusercontent.com/Aydrean27/Aydreanboom/main/Img/REEVA%20(2).png" alt="Accesorio de diseño reutilizado"><span class="product-tag">MATERIAL RECUPERADO</span><button class="favorite" aria-label="Guardar favorito">♡</button></div>
+          <div class="product-meta"><div><h3>Everyday Rework</h3><p>Por Taller Circular</p></div><strong>$29.00</strong></div><button class="add-cart" data-name="Everyday Rework" data-price="29">Añadir a la bolsa <span>+</span></button>
+        </article>
+        <article class="product-card" data-category="accesorios" data-price="18">
+          <div class="product-image"><img src="https://raw.githubusercontent.com/Aydrean27/Aydreanboom/main/Img/REEVA%20(3).png" alt="Accesorio de colección REEVA"><span class="product-tag">EDICIÓN LIMITADA</span><button class="favorite" aria-label="Guardar favorito">♡</button></div>
+          <div class="product-meta"><div><h3>Re:Made Details</h3><p>Por Nudo Studio</p></div><strong>$18.00</strong></div><button class="add-cart" data-name="Re:Made Details" data-price="18">Añadir a la bolsa <span>+</span></button>
+        </article>
+      </div>
+      <p class="demo-note">Productos y precios ilustrativos para la demostración de la interfaz. No representan inventario ni vendedores verificados.</p>
+    </section>
+
+    <section class="story-banner">
+      <div class="story-photo"><img src="https://raw.githubusercontent.com/Aydrean27/Aydreanboom/main/Img/Imagen%20de%20referencia%20Abryll.png" alt="Referencia visual de diseño y moda REEVA"></div>
+      <div class="story-copy"><p class="eyebrow light">03 / MÁS QUE UNA PRENDA</p><h2>Cada pieza<br>guarda una <em>historia.</em></h2><p>Conoce de dónde vienen sus materiales, cómo fueron transformados y quién está detrás de su creación. La etiqueta de historia conecta el objeto con las manos que lo hicieron posible.</p><a class="button button-cream" href="#story-tag">Descubrir Story Tag <span>↗</span></a></div>
+    </section>
+
+    <section class="story-tag section-pad" id="story-tag">
+      <div class="tag-copy"><p class="eyebrow">04 / STORY TAG</p><h2>Una etiqueta.<br><em>Muchas historias.</em></h2><p>Imagina escanear el código QR de tu prenda y descubrir su recorrido: el material original, las técnicas utilizadas y la persona que la transformó.</p><ul class="check-list"><li>Origen de los materiales, cuando se conoce</li><li>Proceso y técnicas de transformación</li><li>Perfil y mensaje del creador</li><li>Fotografías del proceso creativo</li></ul></div>
+      <div class="tag-card"><div class="tag-top"><span>REEVA / DIGITAL PASSPORT</span><span>№ 001</span></div><div class="tag-mark">R<span>↗</span></div><h3>Patchwork<br>Reimagined</h3><p>Una pieza reconstruida a partir de textiles recuperados.</p><div class="tag-bottom"><span>MADE WITH A NEW PURPOSE</span><div class="qr-placeholder">▦</div></div></div>
+    </section>
+
+    <section class="creators section-pad" id="creadores">
+      <div class="section-heading"><div><p class="eyebrow">05 / TALENTO QUE TRANSFORMA</p><h2>Conoce a quienes<br><em>crean el cambio.</em></h2></div><p class="heading-note">Detrás de cada pieza hay una mirada, una técnica y una historia que merece ser contada.</p></div>
+      <div class="creator-grid">
+        <article class="creator-card"><img src="https://raw.githubusercontent.com/Aydrean27/Aydreanboom/main/Img/modelo%201.jpg" alt="Imagen editorial de moda"><div><span>01 / UPCYCLING</span><h3>Atelier Abryll</h3><p>Reconstrucción textil · Panamá</p></div></article>
+        <article class="creator-card"><img src="https://raw.githubusercontent.com/Aydrean27/Aydreanboom/main/Img/Mujer%20upcycling%20ropa%20de%20cuadritos.jpg" alt="Diseño artesanal con textiles"><div><span>02 / PATCHWORK</span><h3>Colectivo Re-Forma</h3><p>Diseño experimental · Panamá</p></div></article>
+        <article class="creator-card"><img src="https://raw.githubusercontent.com/Aydrean27/Aydreanboom/main/Img/REEVA%20(4).png" alt="Referencia de diseño creativo"><div><span>03 / RE-DESIGN</span><h3>Taller Circular</h3><p>Accesorios y reconstrucción · Panamá</p></div></article>
+      </div>
+      <p class="demo-note">Los nombres de creadores son ejemplos de presentación y deben sustituirse por perfiles reales autorizados.</p>
+    </section>
+
+    <section class="process section-pad" id="proceso">
+      <div class="process-heading"><p class="eyebrow light">06 / EL CICLO REEVA</p><h2>Una idea puede<br><em>cambiarlo todo.</em></h2><p>Cuatro pasos para conectar recursos, creatividad y comunidad.</p></div>
+      <div class="process-list">
+        <article><span>01</span><div><h3>Discover</h3><p>Descubrimos prendas y materiales con potencial para una nueva vida.</p></div><b>↗</b></article>
+        <article><span>02</span><div><h3>Create</h3><p>Los creadores imaginan y elaboran piezas a través del upcycling.</p></div><b>↗</b></article>
+        <article><span>03</span><div><h3>Connect</h3><p>Acercamos a compradores, diseñadores y centros de acopio.</p></div><b>↗</b></article>
+        <article><span>04</span><div><h3>Transform</h3><p>Extendemos la vida de los materiales y cambiamos la forma de consumir.</p></div><b>↗</b></article>
+      </div>
+    </section>
+
+    <section class="collection-feature section-pad">
+      <div class="feature-image"><img src="https://raw.githubusercontent.com/Aydrean27/Aydreanboom/main/Img/REEVA%20(5).png" alt="Diseño de moda sostenible"></div>
+      <div class="feature-copy"><p class="eyebrow">07 / REEVA IMPACT</p><h2>El cambio también<br>se <em>puede vestir.</em></h2><p>Queremos impulsar una comunidad que valore la creatividad, la reutilización y el trabajo de los diseñadores locales.</p><a href="#impacto" class="text-link">Conoce nuestro impacto <span>↗</span></a></div>
+    </section>
+
+    <section class="impact section-pad" id="impacto">
+      <div><p class="eyebrow light">08 / IMPACTO EN COMUNIDAD</p><h2>Pequeñas decisiones.<br><em>Nuevas posibilidades.</em></h2></div>
+      <div class="impact-copy"><p>REEVA busca medir su contribución con información transparente: prendas recuperadas, creadores participantes y centros de acopio aliados.</p><div class="impact-metrics"><article><strong>—</strong><span>Prendas recuperadas</span></article><article><strong>—</strong><span>Creadores participantes</span></article><article><strong>—</strong><span>Centros aliados</span></article></div><small>Las cifras se mostrarán cuando existan datos reales y verificables.</small></div>
+    </section>
+
+    <section class="centers section-pad" id="centros">
+      <div class="section-heading"><div><p class="eyebrow">09 / CONECTA CON TU COMUNIDAD</p><h2>Un nuevo destino<br><em>para lo que ya tienes.</em></h2></div><p class="heading-note">Encuentra centros de acopio y conoce qué materiales reciben antes de acercarte.</p></div>
+      <div class="center-panel"><div class="map-art" aria-label="Ilustración conceptual de mapa de Panamá"><div class="map-shape"></div><span class="pin pin-one">✳</span><span class="pin pin-two">✳</span><span class="pin pin-three">✳</span><span class="map-label">PANAMÁ</span></div><div class="center-info"><span class="eyebrow">MAPA DE CENTROS DE ACOPIO</span><h3>Tu próxima parada<br>puede ser el comienzo.</h3><p>Estamos preparando un directorio de centros de recolección en distintas provincias del país.</p><div class="center-search"><input id="centerSearch" type="search" placeholder="Buscar por provincia o distrito" aria-label="Buscar centro de acopio"><button id="centerSearchBtn">Buscar ↗</button></div><p class="demo-note">Directorio demostrativo: aún no contiene establecimientos verificados ni ubicaciones reales.</p></div></div>
+    </section>
+
+    <section class="about section-pad" id="historia">
+      <p class="eyebrow">10 / NUESTRA FILOSOFÍA</p><h2>El futuro de la moda<br>no está en producir más.<br><em>Está en imaginar distinto.</em></h2>
+      <div class="about-bottom"><p>REEVA nace de una idea sencilla: los materiales no pierden su valor cuando dejan de utilizarse de la misma manera. A través de la economía circular, el diseño y la comunidad, buscamos abrir espacio a nuevas formas de crear y consumir moda en Panamá.</p><div class="values"><span>SOSTENIBILIDAD</span><span>CREATIVIDAD</span><span>INNOVACIÓN</span><span>INCLUSIÓN</span><span>ECONOMÍA CIRCULAR</span></div></div>
+    </section>
+
+    <section class="newsletter"><div><p class="eyebrow light">ÚNETE AL MOVIMIENTO</p><h2>Una nueva historia<br>empieza aquí.</h2></div><form id="newsletterForm"><label for="email">Recibe novedades de REEVA</label><div class="newsletter-input"><input id="email" type="email" placeholder="Tu correo electrónico" required><button type="submit">Unirme ↗</button></div><small id="newsletterStatus" aria-live="polite">Al enviar, aceptas recibir novedades del proyecto.</small></form></section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top"><a class="brand footer-brand" href="#inicio">REEVA<span>®</span></a><p>Moda circular.<br>Historias que continúan.</p><div class="footer-links"><a href="#tienda">Tienda</a><a href="#creadores">Creadores</a><a href="#centros">Centros de acopio</a><a href="#historia">Nuestra historia</a></div></div>
+    <div class="footer-bottom"><span>© 2026 REEVA · PROYECTO EN DESARROLLO</span><span>HECHO CON INTENCIÓN EN PANAMÁ</span><a href="#top">VOLVER ARRIBA ↑</a></div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="side-panel" id="cartPanel" aria-label="Bolsa de compras" aria-hidden="true"><div class="panel-head"><h2>Tu bolsa</h2><button class="close-panel" data-close>×</button></div><div id="cartItems" class="cart-items"><p class="empty-cart">Tu bolsa está esperando una nueva historia.</p></div><div class="cart-total"><span>Subtotal</span><strong id="cartTotal">$0.00</strong></div><button class="button button-red checkout-btn" id="checkoutBtn">Continuar <span>↗</span></button><p class="demo-note">Demostración visual. No se procesan pagos ni pedidos reales.</p></aside>
+  <aside class="side-panel account-panel" id="accountPanel" aria-label="Cuenta REEVA" aria-hidden="true"><div class="panel-head"><h2>Tu espacio REEVA</h2><button class="close-panel" data-close>×</button></div><p>Entra al ciclo y mantén tus historias favoritas cerca.</p><form id="loginForm"><label for="loginEmail">Correo electrónico</label><input id="loginEmail" type="email" placeholder="nombre@correo.com" required><label for="loginPassword">Contraseña</label><input id="loginPassword" type="password" placeholder="Tu contraseña" required><button class="button button-red" type="submit">Ingresar ↗</button></form><p class="demo-note" id="loginStatus">Acceso de demostración: todavía no existe un servicio real de cuentas. No introduzcas contraseñas reales.</p></aside>
+  <div class="search-bar" id="searchBar"><input id="siteSearch" type="search" placeholder="Busca prendas, creadores o historias..." aria-label="Buscar en REEVA"><button id="searchClose">×</button></div>
+  <script src="script.js"></script>
+</body>
+</html>

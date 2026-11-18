@@ -1,0 +1,102 @@
+const $ = (s, root=document) => root.querySelector(s);
+const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+
+const menuToggle = $('#menuToggle');
+const mainNav = $('#mainNav');
+menuToggle.addEventListener('click', () => {
+  const open = mainNav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(open));
+});
+$$('#mainNav a').forEach(a => a.addEventListener('click', () => {
+  mainNav.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded','false');
+}));
+
+// Filtros y ordenamiento del catálogo de demostración.
+let activeFilter = 'all';
+function updateProducts(){
+  const grid = $('#productGrid');
+  const cards = $$('.product-card', grid);
+  const sort = $('#sortProducts').value;
+  cards.sort((a,b) => sort === 'low' ? +a.dataset.price - +b.dataset.price :
+    sort === 'high' ? +b.dataset.price - +a.dataset.price : 0);
+  cards.forEach(card => {
+    card.hidden = !(activeFilter === 'all' || card.dataset.category === activeFilter);
+    grid.appendChild(card);
+  });
+}
+$$('.filter').forEach(btn => btn.addEventListener('click', () => {
+  $$('.filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = btn.dataset.filter;
+  updateProducts();
+}));
+$('#sortProducts').addEventListener('change', updateProducts);
+
+// Favoritos: estado temporal en esta pestaña.
+$$('.favorite').forEach(btn => btn.addEventListener('click', () => {
+  const saved = btn.classList.toggle('saved');
+  btn.textContent = saved ? '♥' : '♡';
+  btn.setAttribute('aria-pressed', String(saved));
+}));
+
+// Bolsa local de demostración: no crea pedidos ni cobra dinero.
+let cart = [];
+const overlay = $('#overlay'), cartPanel = $('#cartPanel'), accountPanel = $('#accountPanel');
+function openPanel(panel){
+  closePanels();
+  panel.classList.add('open'); overlay.classList.add('open');
+  panel.setAttribute('aria-hidden','false');
+}
+function closePanels(){
+  [cartPanel,accountPanel].forEach(p=>{p.classList.remove('open');p.setAttribute('aria-hidden','true')});
+  overlay.classList.remove('open');
+}
+$('#cartToggle').addEventListener('click',()=>openPanel(cartPanel));
+$('#accountToggle').addEventListener('click',()=>openPanel(accountPanel));
+overlay.addEventListener('click',closePanels);
+$$('[data-close]').forEach(b=>b.addEventListener('click',closePanels));
+function renderCart(){
+  $('#cartCount').textContent = cart.length;
+  $('#cartTotal').textContent = '$' + cart.reduce((sum,item)=>sum+item.price,0).toFixed(2);
+  const host = $('#cartItems');
+  if(!cart.length){host.innerHTML='<p class="empty-cart">Tu bolsa está esperando una nueva historia.</p>';return;}
+  host.innerHTML = '';
+  cart.forEach((item,index)=>{
+    const row=document.createElement('div');row.className='cart-row';
+    const name=document.createElement('span');name.textContent=item.name;
+    const price=document.createElement('strong');price.textContent='$'+item.price.toFixed(2);
+    const remove=document.createElement('button');remove.textContent='Quitar';remove.setAttribute('aria-label','Quitar '+item.name);
+    remove.addEventListener('click',()=>{cart.splice(index,1);renderCart()});
+    row.append(name,price,remove);host.appendChild(row);
+  });
+}
+$$('.add-cart').forEach(btn=>btn.addEventListener('click',()=>{
+  cart.push({name:btn.dataset.name,price:Number(btn.dataset.price)});
+  renderCart();openPanel(cartPanel);
+}));
+$('#checkoutBtn').addEventListener('click',()=>alert('Esta es una demostración de REEVA. El proceso de pago todavía no está conectado.'));
+$('#loginForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  $('#loginStatus').textContent='El inicio de sesión todavía no está conectado a un servidor. Esta interfaz no almacena ni valida credenciales.';
+});
+$('#newsletterForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  $('#newsletterStatus').textContent='¡Gracias por tu interés! El formulario es demostrativo y aún no registra suscripciones.';
+});
+$('#centerSearchBtn').addEventListener('click',()=>{
+  const q=$('#centerSearch').value.trim();
+  alert(q ? 'La búsqueda de "'+q+'" estará disponible cuando se incorpore un directorio verificado de centros.' : 'Escribe una provincia o distrito para buscar.');
+});
+
+// Buscador visual: desplaza al catálogo y filtra nombres visibles.
+$('#searchToggle').addEventListener('click',()=>$('#searchBar').classList.toggle('open'));
+$('#searchClose').addEventListener('click',()=>$('#searchBar').classList.remove('open'));
+$('#siteSearch').addEventListener('input',e=>{
+  const q=e.target.value.toLocaleLowerCase('es');
+  $$('.product-card').forEach(card=>{
+    const match=card.textContent.toLocaleLowerCase('es').includes(q);
+    card.hidden = !match || !(activeFilter==='all'||card.dataset.category===activeFilter);
+  });
+  $('#tienda').scrollIntoView({behavior:'smooth'});
+});
