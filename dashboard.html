@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+  <title>
+   REEVA &mdash; Dashboard
+  </title>
+  <link href="Assets/Img/favicon.png" rel="icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&amp;display=swap" rel="stylesheet"/>
+  <link href="Assets/Style/styles.css" rel="stylesheet"/>
+  <link href="Assets/Style/style-dashboard.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="announce">
+   <span data-i="an1">
+   </span>
+   &middot;
+   <span data-i="an2">
+   </span>
+  </div>
+  <header class="header">
+   <button aria-label="REEVA" class="brand" data-go="inicio">
+    <img alt="" data-logo="red"/>
+    REEVA
+   </button>
+   <nav class="nav" id="nav">
+    <button data-go="inicio" data-i="n_home">
+    </button>
+    <button data-go="tienda" data-i="n_shop">
+    </button>
+    <button data-go="comunidad" data-i="n_com">
+    </button>
+    <button data-go="impacto" data-i="n_imp">
+    </button>
+    <button data-go="centros" data-i="n_cen">
+    </button>
+    <a href="about.html" style="padding:6px 0;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;border-bottom:2px solid transparent" data-i="n_abo">
+    </a>
+    <a href="dashboard.html" style="padding:6px 0;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--red);border-bottom:2px solid var(--red)">
+     Dashboard
+    </a>
+   </nav>
+   <div class="hacts">
+    <select aria-label="Language" id="lang">
+     <option value="es">
+      ES
+     </option>
+     <option value="en">
+      EN
+     </option>
+     <option value="pt">
+      PT
+     </option>
+     <option value="fr">
+      FR
+     </option>
+    </select>
+    <button aria-label="Favoritos" class="hbtn" id="favb">
+     ♡
+     <b hidden="" id="fcnt">
+      0
+     </b>
+    </button>
+    <button aria-label="Account" class="icon-btn" id="acc">
+     ♙
+    </button>
+    <button class="cart-button" id="bagb">
+     <span data-i="bag">
+     </span>
+     <span id="cnt">
+      0
+     </span>
+    </button>
+    <button aria-label="Menu" id="menu">
+     ☰
+    </button>
+   </div>
+  </header>
+  <main>
+ <section class="view on" id="v-dashboard">
+  <div class="sb bg-blue" style="min-height:320px">
+   <div class="tx">
+    <p class="eyebrow light">PANEL DE CONTROL · REEVA</p>
+    <h2>Tu espacio <em>circular.</em></h2>
+    <p class="lead">Gestiona tu perfil de comprador o diseñador, revisa tus prendas favoritas, tu bolsa y publica nuevas piezas en el taller.</p>
+   </div>
+   <div class="ph" style="min-height:320px">
+    <img alt="Taller REEVA" data-img="workshop"/>
+   </div>
+  </div>
+  <div class="pad bg-alt">
+   <div class="dash-grid">
+    <div class="dash-kpi">
+     <span class="eyebrow" style="margin:0">ESTADO DE CUENTA</span>
+     <strong id="dash-role-stat">Invitado</strong>
+     <p class="note" style="margin:0">Inicia sesión como comprador o diseñador para desbloquear funciones.</p>
+    </div>
+    <div class="dash-kpi">
+     <span class="eyebrow" style="margin:0">PRENDAS FAVORITAS</span>
+     <strong id="dash-fav-count">0</strong>
+     <p class="note" style="margin:0">Guardadas desde la tienda o comunidad.</p>
+    </div>
+    <div class="dash-kpi">
+     <span class="eyebrow" style="margin:0">EN TU BOLSA</span>
+     <strong id="dash-bag-count">0</strong>
+     <p class="note" style="margin:0">Piezas listas para reservar o comprar.</p>
+    </div>
+   </div>
+   <div class="dash-panels">
+    <div class="dash-box">
+     <h3 data-i="acc_t">Mi cuenta</h3>
+     <div id="dash-acc"></div>
+    </div>
+    <div class="dash-box">
+     <h3 data-i="fav_t">Mis favoritos</h3>
+     <div id="dash-fav"></div>
+     <hr style="border:0;border-top:1px solid var(--line);margin:24px 0"/>
+     <h3 data-i="cart_t">Tu bolsa</h3>
+     <div id="dash-bag"></div>
+     <button class="button b-red" data-i="co" onclick="pays()" style="width:100%;margin-top:14px">Continuar</button>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="view on" id="v-taller">
+    <div class="pad bg-alt">
+     <p class="eyebrow" data-i="tl_eb">
+     </p>
+     <h2 data-i="tl_t">
+     </h2>
+     <div class="two" style="align-items:start;margin-top:40px">
+      <form class="fl" id="tf">
+       <input data-ph="tl_n" id="tn" required="" type="text"/>
+       <input data-ph="tl_p" id="tp" min="1" required="" step="0.5" type="number"/>
+       <select class="f" id="tc">
+       </select>
+       <select class="f" id="tg">
+       </select>
+       <label class="note" data-i="tl_st">
+       </label>
+       <div class="tst" id="tst">
+       </div>
+       <label class="note" data-i="tl_f">
+       </label>
+       <input accept="image/*" id="tfi" required="" type="file"/>
+       <textarea data-ph="tl_l" id="tl" maxlength="240" required=""></textarea>
+       <button class="button b-red" data-i="tl_b">
+       </button>
+       <p aria-live="polite" class="note" id="ts">
+       </p>
+      </form>
+      <div>
+       <p class="eyebrow" data-i="tl_pv">
+       </p>
+       <div id="tprev">
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+</main>
+  <footer class="foot">
+   <div>
+    <img alt="REEVA" data-logo="cream"/>
+    <p data-i="ft_p">
+    </p>
+   </div>
+   <div>
+    <p class="eyebrow light" data-i="ft_n">
+    </p>
+    <button class="fl" data-go="tienda" data-i="n_shop">
+    </button>
+    <button class="fl" data-go="comunidad" data-i="n_com">
+    </button>
+    <button class="fl" data-go="impacto" data-i="n_imp">
+    </button>
+    <button class="fl" data-go="centros" data-i="n_cen">
+    </button>
+    <a class="fl" href="about.html" data-i="n_abo">
+    </a>
+    <a class="fl" href="dashboard.html">
+     Dashboard
+    </a>
+   </div>
+   <div>
+    <p class="eyebrow light" data-i="w_l">
+    </p>
+    <form class="nf">
+     <input aria-label="email" data-ph="w_ph" required="" type="email"/>
+     <button class="button b-red" data-i="w_b">
+     </button>
+    </form>
+    <p aria-live="polite" class="note ns" style="color:#fff">
+    </p>
+   </div>
+   <div class="copy">
+    &copy; 2026 REEVA &middot;
+    <span data-i="foot">
+    </span>
+   </div>
+  </footer>
+  <div class="ov" id="ov">
+  </div>
+  <aside id="cartP">
+   <div class="ph2">
+    <h2 data-i="cart_t" style="font-size:2rem">
+    </h2>
+    <button aria-label="Cerrar" data-x="">
+     &times;
+    </button>
+   </div>
+   <div id="items">
+   </div>
+   <p class="cr">
+    <span data-i="sub">
+    </span>
+    <b id="tot">
+     $0.00
+    </b>
+   </p>
+   <button class="button b-red" data-i="co" id="co" style="width:100%;margin-top:14px">
+   </button>
+  </aside>
+  <aside id="accP">
+   <div class="ph2">
+    <h2 data-i="acc_t" style="font-size:2rem">
+    </h2>
+    <button aria-label="Cerrar" data-x="">
+     &times;
+    </button>
+   </div>
+   <div id="accB">
+   </div>
+  </aside>
+  <aside id="favP">
+   <div class="ph2">
+    <h2 data-i="fav_t" style="font-size:2rem">
+    </h2>
+    <button aria-label="Cerrar" data-x="">
+     &times;
+    </button>
+   </div>
+   <div id="favB">
+   </div>
+  </aside>
+  <div aria-modal="true" class="modal" id="modal" role="dialog">
+  </div>
+  <button aria-expanded="false" id="ai">
+   💬
+   <span data-i="ai_b">
+   </span>
+  </button>
+  <div aria-label="Asistente" id="aiP" role="dialog">
+   <div class="hd">
+    <span data-i="ai_t">
+    </span>
+    <button aria-label="Cerrar" data-aix="" style="background:none;border:0;color:#fff;font-size:24px">
+     &times;
+    </button>
+   </div>
+   <div aria-live="polite" id="aiM">
+   </div>
+   <div id="aiC">
+   </div>
+   <form id="aiF">
+    <input aria-label="Mensaje" data-ph="ai_ph" id="aiQ"/>
+    <button class="button b-blue" data-i="ai_s">
+    </button>
+   </form>
+  </div>
+  <script defer="True" src="Assets/js/script.js">
+  </script>
+ </body>
+</html>
