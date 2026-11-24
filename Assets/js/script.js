@@ -16,13 +16,13 @@ const REELS=[["v","fash",13],["v","gran",0],["v","tail",9],["i","sofa",3],["i","
 const F=[{n:"Valeria Ortega",img:"sofa",pos:"50% 30%",r:{es:"Cofundadora · Dirección creativa",en:"Co-founder · Creative direction"},b:{es:"Estudiante de diseño que empezó a reparar y rediseñar la ropa de su familia. Lidera la línea visual de REEVA.",en:"Design student who began mending and redesigning her family’s clothes. Leads REEVA’s visual line."},l:{es:["Primer taller de upcycling del equipo","Curó la primera colección"],en:["Team’s first upcycling workshop","Curated the first collection"]}},{n:"Daniel Mendieta",img:"coast",pos:"50% 30%",r:{es:"Cofundador · Alianzas y acopio",en:"Co-founder · Partnerships & collection"},b:{es:"Conecta a REEVA con centros de acopio y organizaciones locales para que los materiales lleguen a quien los transforma.",en:"Connects REEVA with local drop-off centers and organizations so materials reach those who transform them."},l:{es:["Red inicial de centros de acopio","Alianzas con talleres locales"],en:["Initial drop-off center network","Partnerships with local workshops"]}},{n:"Camila Rojas",img:"studio",pos:"50% 35%",r:{es:"Cofundadora · Comunidad",en:"Co-founder · Community"},b:{es:"Da voz a diseñadores y compradores con historias, reels y encuentros que mantienen viva la comunidad.",en:"Gives a voice to designers and buyers through stories, reels and meetups that keep the community alive."},l:{es:["Creó el formato Story Tag","Primeros encuentros de la comunidad"],en:["Created the Story Tag format","First community meetups"]}},{n:"Andrés Batista",img:"city",pos:"50% 35%",r:{es:"Cofundador · Tecnología",en:"Co-founder · Technology"},b:{es:"Convierte las ideas del equipo en una plataforma simple, segura y accesible desde el celular.",en:"Turns the team’s ideas into a simple, secure platform that works on mobile."},l:{es:["Diseñó la plataforma REEVA","Impulsa los pagos locales"],en:["Designed the REEVA platform","Drives local payments"]}}];
 const HS=[{es:["El origen","Un grupo de jóvenes panameños notó que muchas prendas terminaban olvidadas en closets y vertederos, aunque seguían teniendo valor."],en:["The origin","A group of young Panamanians noticed many garments ended up forgotten in closets and landfills, though they still had value."]},{es:["La chispa","Entre charlas, ferias y talleres se preguntaron: ¿y si la ropa tuviera otra historia en manos de un diseñador?"],en:["The spark","Through talks, fairs and workshops they asked: what if clothes had a new story in a designer’s hands?"]},{es:["La comunidad","Así REEVA empezó a unir a diseñadores, compradores y centros de acopio en una sola red."],en:["The community","That’s how REEVA began uniting designers, buyers and drop-off centers in one network."]},{es:["El futuro","Queremos que vestir el cambio sea lo normal: más creatividad, menos desperdicio y oportunidades para el talento local."],en:["The future","We want wearing the change to be the norm: more creativity, less waste, more opportunities for local talent."]}];
 const Z=[["Acopio Panamá Centro","Panamá","Panamá",-79.52,8.98,[1,2,4]],["Reeva Hub La Chorrera","Panamá Oeste","La Chorrera",-79.78,8.88,[1,2,3]],["Punto Verde Colón","Colón","Colón",-79.9,9.36,[1,2,5]],["Taller Circular David","Chiriquí","David",-82.43,8.43,[1,2,3]],["Casa Re-Uso Boquete","Chiriquí","Boquete",-82.44,8.78,[1,4,5]],["Centro Cambio Bocas","Bocas del Toro","Bocas del Toro",-82.24,9.34,[1,5]],["Acopio Santiago","Veraguas","Santiago",-80.98,8.1,[1,2,3,4]],["Punto Re-Forma Penonomé","Coclé","Penonomé",-80.36,8.52,[1,3,4]],["Hub Azuero Chitré","Herrera","Chitré",-80.43,7.96,[1,2,4]],["Acopio Las Tablas","Los Santos","Las Tablas",-80.28,7.77,[1,3,5]],["Centro Metetí","Darién","Metetí",-77.98,8.5,[1,2,4]]];
-let gen="all",cat="all",mk=-1,fav=new Set,cart=[],acct=null,sel=-1,pay="y",role="",det=null,TH="auto";
+let gen="all",cat="all",mk=-1,fav=new Set,cart=[],acct=window.acct||null,sel=-1,pay="y",role="",det=null,TH="auto";
 const PHONE="+507 000-0000"; /* CAMBIA por el teléfono real */
 try{JSON.parse(localStorage.getItem("rf")||"[]").forEach(i=>fav.add(i))}catch(e){}
 try{TH=localStorage.getItem("rt")||"auto"}catch(e){}
 const applyTheme=()=>{if(TH=="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.dataset.theme=TH};applyTheme();
-try{acct=JSON.parse(localStorage.getItem("ra")||"null")}catch(e){}
-const save=()=>{try{localStorage.setItem("ra",JSON.stringify(acct))}catch(e){}};
+try{acct=JSON.parse(localStorage.getItem("ra")||"null")}catch(e){}if(window.acct)acct=window.acct;
+const save=()=>{window.acct=acct;try{localStorage.setItem("ra",JSON.stringify(acct))}catch(e){}};
 const im=(k,p,c)=>`<img class="${c||(CUT.has(k)?"cut":"")}" src="${IMG[k]||k}" alt="" loading="lazy" style="object-position:${p||"50% 50%"}">`;
 const who=p=>C[p[1]]||p[10]||"REEVA";const leg=p=>p[8]||t("lg"+p[5]).replace("{c}",who(p));
 function tagH(p){const n=P.indexOf(p);return `<div class="tagc"><div class="t1"><span>STORY TAG</span><span>№ ${n<0?"—":String(n+1).padStart(3,"0")}</span></div><img class="lg" src="${LOGO.red}" alt="REEVA"><h3>${esc(p[0])}</h3><p>${esc(leg(p))}</p><small>${esc(who(p)).toUpperCase()} · REEVA®</small></div>`}
@@ -82,8 +82,8 @@ if(acct){const rb=acct.role=="b"?t("ac_buyer"):acct.ok?t("rl_dok"):t("rl_dpend")
 h+=`<div class="pcard"><div class="av">${esc((acct.name||"?")[0].toUpperCase())}</div><div><b style="font:600 20px var(--serif)">${esc(acct.name)}</b><br><small>${esc(acct.email)}</small><br><span class="badge">${rb}</span></div></div>`;
 if(acct.role=="d"&&!acct.ok)h+=`<p class="note">${t("ac_pend")}</p><a class="button b-blue" href="mailto:${EMAIL}?subject=${encodeURIComponent("Solicitud de diseñador REEVA")}&body=${encodeURIComponent("Nombre: "+acct.name+"\nCorreo: "+acct.email+"\nQuiero vender mis prendas en REEVA.")}">${t("ac_send")}</a><p><button class="button b-line" data-sim>${t("ac_sim")}</button></p>`}
 else if(!role)h+=`<p class="lead">${t("ac_q")}</p><button class="opt" data-role="b"><b>🛍</b><span><strong>${t("ac_b")}</strong><small>${t("ac_bp")}</small></span></button><button class="opt" data-role="d"><b>✂️</b><span><strong>${t("ac_d")}</strong><small>${t("ac_dp")}</small></span></button>`;
-else{b.innerHTML=`<button class="text-link" data-back>${t("ac_back")}</button><form id="af" class="fl"><input id="an" required placeholder="${t("ac_n")}"><input id="ae" type="email" required placeholder="${t("w_ph")}"><input id="ap" type="password" required minlength="6" placeholder="${t("pw")}"><button class="button b-red">${t("ac_go")}</button><p class="note">${t("ac_demo")}</p></form>`;return}
-b.innerHTML=h+`<p class="eyebrow" style="margin-top:22px">${t("p_theme")}</p>${thChips()}<div style="margin-top:14px">${menu()}</div>`}
+else{b.innerHTML=`<button class="text-link" data-back>${t("ac_back")}</button><form id="af" class="fl"><input id="an" required placeholder="${t("ac_n")}"><input id="ae" type="email" required placeholder="${t("w_ph")}"><input id="ap" type="password" required minlength="6" placeholder="${t("pw")}"><button class="button b-red">${t("ac_go")}</button><button type="button" class="button b-blue" id="google-login-btn" style="width:100%">Continuar con Google</button><p class="note">${t("ac_demo")}</p></form>`;return}
+b.innerHTML=h+`<p class="eyebrow" style="margin-top:22px">${t("p_theme")}</p>${thChips()}<div style="margin-top:14px">${menu()}</div>`;window.accR=accR}
 const simple=(ti,body)=>modal(`<h2 style="font-size:2rem">${ti}</h2>${body}`);
 function settings(){simple(t("p_set"),`<p class="eyebrow" style="margin-top:16px">${t("p_theme")}</p>${thChips()}<p class="eyebrow" style="margin-top:18px">${t("p_lang")}</p><div class="tgl">${["es","en","pt","fr"].map(k=>`<button class="filter ${L==k?"on":""}" data-lg="${k}">${k.toUpperCase()}</button>`).join("")}</div>${acct?`<label class="opt" style="margin-top:18px"><input type="checkbox" data-notif ${acct.notif?"checked":""} style="width:auto"><span>${t("p_notif")}</span></label><p style="margin-top:18px"><button class="button b-line" data-del>${t("p_del")}</button></p>`:""}`);$("#modal").dataset.k="set"}
 function help(){simple(t("p_help"),`<p class="lead">${t("p_helpt")}</p><a class="opt" href="tel:${PHONE.replace(/[^+\d]/g,"")}"><b>📞</b><span><strong>${t("p_call")}</strong><small>${PHONE}</small></span></a><a class="opt" href="mailto:${EMAIL}"><b>✉️</b><span><strong>${t("p_mail")}</strong><small>${EMAIL}</small></span></a><button class="opt" data-askai><b>💬</b><span><strong>${t("p_ai")}</strong><small>${t("p_aid")}</small></span></button><p class="note">${t("p_ph")}</p>`)}
@@ -111,7 +111,7 @@ if(q("[data-help]"))help();if(q("[data-sett]"))settings();if(q("[data-askai]")){
 if(q("[data-pedit]"))modal(`<h2 style="font-size:2rem">${t("p_edit")}</h2><form id="pf" class="fl"><input id="pn2" required value="${esc(acct.name)}"><input id="pp" type="tel" placeholder="${t("p_phone")}" value="${esc(acct.phone||"")}"><button class="button b-red">${t("p_save")}</button></form>`);
 if(x=q("[data-th]")){TH=x.dataset.th;try{localStorage.setItem("rt",TH)}catch(e){}applyTheme();accR();if($("#modal").dataset.k=="set")settings()}
 if(x=q("[data-lg]")){L=x.dataset.lg;try{localStorage.setItem("rl",L)}catch(e){}i18n();settings()}
-if(x=q("[data-notif]")){acct.notif=x.checked;save()}
+if(x=q("[data-notif]")){if(acct){acct.notif=x.checked;save();window.reevaAuth?.guardarPerfilFirebase(null,{notif:acct.notif})}}
 if(q("[data-del]"))simple(t("p_del"),`<p>${t("p_delq")}</p><button class="button b-red" data-delok>${t("p_delok")}</button>`);
 if(q("[data-delok]")){acct=null;try{localStorage.removeItem("ra")}catch(e){}closeP();role="";accR()}
 if((x=q("[data-pc]"))&&!q("button")&&!q("a"))openDetail(+x.dataset.pc);
@@ -119,14 +119,15 @@ if(x=q("[data-t]"))modal(tagH(P[+x.dataset.t])+`<p style="margin-top:20px"><butt
 if(e.target.id=="clr"){e.preventDefault();mk=-1;shop()}
 if(x=q("[data-p]")){if(!q("a")){sel=+x.dataset.p;map_()}}
 if(x=q("[data-role]")){role=x.dataset.role;accR()}if(q("[data-back]")){role="";accR()}
-if(q("[data-out]")){acct=null;save();role="";accR()}if(q("[data-sim]")){acct.ok=true;save();accR()}
+if(q("#google-login-btn")){e.preventDefault();window.reevaAuth?.loginConGoogle(role||"b").then(u=>{acct=u;accR()}).catch(err=>alert("Error con Google: "+err.message));return}
+if(q("[data-out]")){window.reevaAuth?.cerrarSesionFirebase();acct=null;save();role="";accR()}if(q("[data-sim]")){acct.ok=true;save();accR()}
 if(x=q("[data-pay]")){pay=x.dataset.pay;pays()}if(q("[data-payok]"))$("#pn").textContent=t("pay_n");
 if(q("[data-aix]"))$("#aiP").classList.remove("on");
 if(q("[data-x]")||e.target.id=="ov")closeP()});
 document.addEventListener("keydown",e=>{if(e.key=="Escape")closeP();if(e.key=="Enter"&&e.target.dataset&&e.target.dataset.p){sel=+e.target.dataset.p;map_()}});
 document.addEventListener("submit",e=>{e.preventDefault();const f=e.target;
 if(f.classList.contains("nf"))$$(".ns").forEach(n=>n.textContent=t("w_ok"));
-if(f.id=="af"){acct={name:$("#an").value.trim(),email:$("#ae").value.trim(),role,ok:false};save();accR()}
+if(f.id=="af"){const n=$("#an").value.trim(),em=$("#ae").value.trim(),pw=$("#ap").value;window.reevaAuth?.registroEmail(n,em,pw,role||"b").then(u=>{acct=u;accR()}).catch(async err=>{if(err.code==="auth/email-already-in-use"){try{acct=await window.reevaAuth.loginEmail(em,pw);accR()}catch(e2){alert("Error al iniciar sesión: "+e2.message)}}else{alert("Error al crear cuenta: "+err.message)}})}
 if(f.id=="tf"){const file=$("#tfi").files[0];if(!file)return;if(file.size>3e6){$("#ts").textContent=t("tl_big");return}
 const stk={};$$(".stin").forEach(x=>{if(+x.value>0)stk[x.dataset.s]=Math.floor(+x.value)});if(!Object.keys(stk).length){$("#ts").textContent=t("tl_nost");return}
 const r=new FileReader();r.onload=()=>{P.push([$("#tn").value,-1,$("#tc").value,$("#tg").value,+$("#tp").value,0,r.result,"50% 50%",$("#tl").value,1,acct?acct.name:"REEVA",stk]);f.reset();prev();shop();$("#ts").textContent=t("tl_ok")};r.readAsDataURL(file)}
@@ -176,3 +177,10 @@ cart_ = function(){ _origCart(); dashInit(); };
 const _origAccR = accR;
 accR = function(){ _origAccR(); dashInit(); };
 dashInit();
+
+
+window.addEventListener("reeva-auth-change", e => {
+  acct = e.detail || null;
+  if (typeof accR === "function") accR();
+  if (typeof dashInit === "function") dashInit();
+});
