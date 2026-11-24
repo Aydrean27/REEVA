@@ -17,12 +17,12 @@ import {
 
 // COMPLETA los valores de tu firebaseConfig desde Firebase Console > Configuración > General
 const firebaseConfig = {
-  apiKey: "PEGA_AQUI_TU_API_KEY",
+  apiKey: "AIzaSyCwE9xjeK3lFaSsF2hf_-M8DIRNB-enUHU",
   authDomain: "reevaaydrean27.firebaseapp.com",
   projectId: "reevaaydrean27",
   storageBucket: "reevaaydrean27.firebasestorage.app",
-  messagingSenderId: "PEGA_AQUI_TU_SENDER_ID",
-  appId: "PEGA_AQUI_TU_APP_ID"
+  messagingSenderId: "689525944164",
+  appId: "1:689525944164:web:881c6ee4bf608be6dcd471"
 };
 
 const app = initializeApp(firebaseConfig);
